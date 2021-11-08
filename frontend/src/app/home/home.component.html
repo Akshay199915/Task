@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar [index]="1"></app-sidebar>
+    </div>
+    <div class="col-md-8 ">
+        <div class="form">
+            <div class="row productt">
+                <div *ngFor="let product of products" class="col-sm-6 ">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">ProductId:{{product.product_id}}</p>
+                            <p class="card-text">Name:{{product.product_name}}</p>
+                            <p class="card-text">Price:{{product.product_price}}</p>
+                            <p class="card-text">Quantity:{{product.product_quantity}}</p>
+                            <!-- <a class="btn btn-primary" (click)="onEdit(product._id)">Give Rating</a>-->
+                            <button mat-raised-button color="primary" (click)="openDialog(product._id)">Rating</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

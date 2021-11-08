@@ -1,0 +1,26 @@
+<div class="form">
+    <h1>Rating</h1>
+    <div class="formbox">
+        <form #ratingForm="ngForm" (ngSubmit)="Submit(ratingForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="formm._id">
+
+            <input type="hidden" class="form-control" name="product_id" #product_id="ngModel" [(ngModel)]="formm.product_id" placeholder="Product Id" required />
+            <input type="hidden" class="form-control" name="product_name" #product_id="ngModel" [(ngModel)]="formm.product_name" placeholder="Product Id" required />
+            <input type="hidden" class="form-control" name="email" #email="ngModel" [(ngModel)]="userr.email" placeholder="Email" maxlength="16" required />
+
+            <div class="form-group" class="formn">
+                <input type="text" class="form-control" name="rating" #rating="ngModel" [(ngModel)]="model.rating" placeholder="Rating" required />
+
+            </div>
+            <div class="row col-12 btn1">
+                <div class="form-group" class=" col-6 formn">
+                    <button type="submit" mat-raised-button color="accent" [mat-dialog-close]>Submit</button>
+                </div>
+                <div class="form-group" class=" col-6 formn">
+                    <button mat-raised-button color="warn" [mat-dialog-close]="">Back</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

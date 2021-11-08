@@ -1,0 +1,42 @@
+body {
+    font-family: 'Gotu', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.form {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 7%;
+    margin-left: 90px;
+    text-align: center;
+    margin-bottom: 10%;
+    padding: 0px;
+}
+
+.formn {
+    padding: 12px;
+}
+
+.form h1 {
+    color: #053AA2;
+    margin-bottom: 2%;
+}
+
+.formbox {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 50px;
+    padding-bottom: 5px;
+    border: 1px solid lightgray;
+}
+
+.btn1 {
+    background-color: #053AA2;
+    color: white;
+    margin: 40px;
+    padding: 10px 40px;
+    margin-top: 10p;
+}

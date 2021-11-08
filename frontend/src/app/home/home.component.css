@@ -1,0 +1,19 @@
+.form {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 7%;
+    text-align: center;
+    margin-left: 80px;
+    margin-bottom: 10%;
+    padding: 0px;
+}
+
+.productt {
+    padding: 20px;
+    margin: 10px;
+    padding-bottom: 20px;
+}
+
+.card-title {
+    font-size: medium;
+}

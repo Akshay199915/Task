@@ -1,0 +1,29 @@
+<app-header>
+</app-header>
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-8 tabble">
+        <button class="btn btn1 btn-primary" routerLink="/avgrating">Average Rating</button>
+        <table class="table table-hover table-bordered container">
+            <thead>
+                <tr>
+
+                    <td>Productid </td>
+                    <td>ProductName </td>
+                    <td>Email </td>
+                    <td>Rating</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rating of ratings">
+                    <td>{{rating.product_id}}</td>
+                    <td>{{rating.product_name}}</td>
+                    <td>{{rating.email}}</td>
+                    <td>{{rating.rating}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
