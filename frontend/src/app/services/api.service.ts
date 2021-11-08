@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.post(environment.baseUrl+url, data);
   }
 
-  getRequestById(url:string,id:string){
-    return this.http.get(environment.baseUrl+url+`${id}`)
+  getRequestById(url:string,_id:string){
+    return this.http.get(environment.baseUrl+url+`${_id}`)
   }
 
   getRequest(url:string) {

@@ -13,7 +13,7 @@
             <div class="form">
                 <h1>Update Product</h1>
                 <div class="formbox">
-                    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value,id)">
+                    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
                         <input type="hidden" class="form-control" name="_id" #_id="ngModel" [(ngModel)]="form._id">
                         <div class="form-group" class="formn">
                             <label>Product Id</label>

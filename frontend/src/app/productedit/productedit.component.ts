@@ -23,30 +23,29 @@ export class ProducteditComponent implements OnInit {
   constructor(public service: ApiService,private router: Router,private activatedRoute: ActivatedRoute) { 
     this.activatedRoute.params.subscribe(params => {
    this.id = params.id;
+   console.log(this.id)
     });
  
   }
   ngOnInit(): void {
     this.addForm();
-     this.getproduct(this.id)
+     this.getproduct();
   }
    
 
   addForm(form?: NgForm) {
-   if (form)
-  //   form.reset();
+    if (form)
   this.selectedproduct = {
-      _id:"",
-      product_id:"",
+    _id:"",
+    product_id:"",
       product_name:"",
       product_price:"",
       product_quantity:"",
-     
-    }
+   }
   }
 
-  getproduct(id:string){
-    this.service.getRequestById(ApiUrl.GETPRODUCTBYID,id).subscribe((resp:any) => {
+  getproduct(){
+    this.service.getRequestById(ApiUrl.GETPRODUCTBYID,this.id).subscribe((resp:any) => {
       this.form ={
         _id:resp.data._id,
          product_id: resp.data.product_id,
@@ -57,11 +56,13 @@ export class ProducteditComponent implements OnInit {
       });
   }
  
-onSubmit(form:NgForm,id:string) {   
-  this.service.putRequest(ApiUrl.PRODUCTEDIT,form.value,id).subscribe((data:any )=>{
+onSubmit(form:NgForm) {   
+  this.service.putRequest(ApiUrl.PRODUCTEDIT,this.id,form.value ).subscribe((data:any )=>{
     this.addForm(form);
+    console.log(data)
+  //  this.selectedproduct;
   //  this.router.navigate(['/product']);
-   console.log(data);   
+  // console.log(data);   
  })
  }
 

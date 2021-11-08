@@ -1,8 +1,8 @@
 const express = require('express');
 var { Productitem } = require('../../model/Productdetail');
-//var ObjectId = require('mongoose').Types.ObjectId;
+var objectId = require('mongoose').Types.ObjectId;
 require('../../jwtHelper');
-
+//var bjectID = require('mongodb').ObjectID;
 
 const ProductitemController = {
 
@@ -52,8 +52,13 @@ const ProductitemController = {
 
 
     update(req, res) {
-
-        Productitem.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true }).then(result => {
+        var product = {
+            product_id: req.body.product_id,
+            product_name: req.body.product_name,
+            product_price: req.body.product_price,
+            product_quantity: req.body.product_quantity
+        }
+        Productitem.findByIdAndUpdate(req.params.id, { $set: product }, { new: true }).then(result => {
             console.log(req.params.id)
             res.json({
                 success: true,

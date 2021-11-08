@@ -24,6 +24,7 @@ export class RatingComponent implements OnInit {
    {
     this.activatedRoute.params.subscribe(params => {
       this.id = params.id;
+      //console.log(this.id)
     })
   }
   
@@ -46,12 +47,25 @@ export class RatingComponent implements OnInit {
     };
   }
   
-   
+  getproduct(id:string){
+    this.service.getRequestById(ApiUrl.GETPRODUCTBYID,id).subscribe((resp:any) => {
+   // console.log(resp.data)
+      this.formm ={
+          _id:resp.data._id,
+         product_id: resp.data.product_id,
+         product_name: resp.data.product_name,
+         product_price: resp.data.product_price,
+         product_quantity: resp.data.product_quantity
+         }
+
+      });
+      
+  }
 
   ngOnInit(): void {
     this.getproduct(this.id);
     this.emaill = localStorage.getItem('user'); 
-   // console.log(localStorage.user);
+    console.log(localStorage.user);
      this.userr ={
          email:localStorage.user
      }
@@ -66,25 +80,12 @@ export class RatingComponent implements OnInit {
    
 
 
-   getproduct(id:string){
-    this.service.getRequestById(ApiUrl.GETPRODUCTBYID,id).subscribe((resp:any) => {
-      console.log(resp);
-      this.formm ={
-          _id:resp.data._id,
-         product_id: resp.data.product_id,
-         product_name: resp.data.product_name,
-         product_price: resp.data.product_price,
-         product_quantity: resp.data.product_quantity
-         }
-      });
-
-    
-  }
+  
        
   Submit(form:NgForm){
        this.service.postRequest(ApiUrl.RATINGADD,form.value).subscribe((res)=>{
          this.resetForm(form);
-         this.router.navigate(['/home']);
+      //   this.router.navigate(['/home']);
     } )
   }
         

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute } from '@angular/router';
 import { ApiUrl } from '../services/apiUrl';
 import { ApiService } from '../services/api.service';
 import { MaterialModule } from '../material/material.module';
@@ -12,20 +12,24 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class HomeComponent implements OnInit {
   products:any =[];
-  
-  constructor(public service: ApiService ,private router: Router ,public dialog: MatDialog ){ }
+  id:any;
+  constructor(public service: ApiService ,private activatedRoute: ActivatedRoute,private router: Router ,public dialog: MatDialog ){ 
+    this.activatedRoute.params.subscribe(params => {
+      this.id = params.id;
+    //  console.log(this.id)
+    })
+  }
 
   openDialog(id:string): void {
-    
-
-
-     const dialogRef = this.dialog.open(RatingComponent, {
+    const dialogRef = this.dialog.open(RatingComponent, {
     
       width: '300px',
-      height: '270px'
+      height: '250px'
    
     });
- //   this.router.navigate([`/rating/${id}`]);  
+  
+       
+
     dialogRef.afterClosed().subscribe(res => {
    //   this.color = res;
     });
@@ -35,7 +39,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getproduct();
-    
+    this.onEdit(this.id);
+   
    
   }
   getproduct(){
@@ -46,12 +51,12 @@ export class HomeComponent implements OnInit {
   }
   onEdit(id:string) {
     this.service.getRequestById(ApiUrl.GETPRODUCTBYID,id).subscribe((res:any)=>{
-          this.router.navigate([`/rating/${id}`]); 
+        // this.router.navigate([`/rating/${id}`]); 
+        
            
     })
-   
-   
-   }
+ }
+ 
 
 
 }

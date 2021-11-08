@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       console.log(this.tokenn);
         if(res.success){
           this.resetForm(form);   
-          localStorage.setItem('user',(res.data.name));
+          localStorage.setItem('user',(res.data.email));
           localStorage.setItem('isLoggedIn', "true");  
           localStorage.setItem('x-access-token', res['token']); 
           this.notifyService.showSuccess("Login successfully !!", "Welcome")
