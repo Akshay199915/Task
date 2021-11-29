@@ -18,7 +18,7 @@ app.use(cors());
 var port = process.env.PORT || 3000;
 
 
-
+//app.use('static', express.static(path.join(__dirname, 'uploads')));
 
 app.listen(port, function() {
     console.log('Listening on port ' + port);

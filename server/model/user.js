@@ -12,3 +12,18 @@ var User = mongoose.model('User', {
 });
 
 module.exports = { User };
+
+// var mongoose = require('mongoose');
+// var UserSchema = new mongoose.Schema({
+//     id: { type: String },
+//     firstName: { type: String, require: true },
+//     lastName: { type: String },
+//     profilePic: { type: String },
+//     email: { type: String, require: true, lowerCase: true },
+//     description: { type: String },
+//     password: { type: String, require: true, select: false },
+//     created_at: { type: Date, default: Date.now },
+//     status: { type: Number, default: 1 }
+// });
+
+// module.exports = mongoose.model('User', UserSchema);
