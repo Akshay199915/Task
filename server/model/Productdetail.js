@@ -10,6 +10,4 @@ var Productitem = mongoose.model('Productitem', {
     product_quantity: { type: String }
 });
 
-
-
 module.exports = { Productitem };

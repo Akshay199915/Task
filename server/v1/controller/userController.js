@@ -167,4 +167,37 @@ const userController = {
     }
 }
 
+// async update(req, res) {
+
+//     const checkedexit = await User.find({ _id: { $ne: req.body.id } }, { email: req.body.email });
+//     //  console.log(checkedexit, req.body.id)
+//     if (checkedexit) {
+//         var user = {
+//             firstName: req.body.firstName,
+//             lastName: req.body.lastName,
+//             //  profilePic: 'static/users/' + req.file.filename,
+//             email: req.body.email,
+//             description: req.body.description,
+//             // password: hashpassword
+
+//         }
+//         User.findByIdAndUpdate(req.body.id, { $set: user }, { new: true }).then(result => {
+//             res.json({
+//                 success: true,
+//                 message: message.update_success,
+//                 data: result
+//             });
+//         }).catch(err => {
+//             return console.log(err);
+//         });
+//     } else {
+//         return res.json({
+//             success: true,
+//             message: message.email_err,
+
+//         });
+//     }
+// },
+
+
 module.exports = userController;

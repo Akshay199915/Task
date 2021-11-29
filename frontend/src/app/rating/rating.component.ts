@@ -29,6 +29,7 @@ export class RatingComponent implements OnInit {
   }
   
   model ={
+    _id:'',
       product_id :'',
       product_name:'',
       email:'',
@@ -39,6 +40,7 @@ export class RatingComponent implements OnInit {
     if (form)
       form.reset();
   this.model = {
+    _id:"",
   product_id :'',
   product_name:'',
    email:'',
