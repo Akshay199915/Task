@@ -3,8 +3,8 @@ const config = require('./config');
 
 
 const verifyToken = (req, res, next) => {
-    const token = req.headers["x-access-token"];
-
+    const token = req.headers["authorization"];
+    console.log(req.headers)
     if (!token) {
         return res.json({
             success: false,
@@ -13,15 +13,17 @@ const verifyToken = (req, res, next) => {
     }
     try {
         const decoded = jwt.verify(token, config.JWT_SECRET);
-        req.user = decoded;
+        req.user = decoded
 
+        return next();
     } catch (err) {
+        console.log(err)
         return res.json({
             success: false,
             message: "Invalid Token"
         });
     }
-    return next();
+
 };
 
 module.exports = verifyToken;

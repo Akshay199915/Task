@@ -26,3 +26,9 @@ router.delete('/:id', userController.delete);
 router.post('/login', userController.login);
 
 module.exports = router;
+
+// router.post('/register', upload.single('profilePic'), userController.createUser);
+// router.post('/login', userController.loginUser)
+// router.put('/updateuser', verifyToken, upload.single('profilePic'), userController.updateUser);
+// router.get('/usergetById', verifyToken, userController.getById);
+// router.get('/alluserlocation', verifyToken, userController.getallUserLocation)

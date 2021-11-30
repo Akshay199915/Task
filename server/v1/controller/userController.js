@@ -169,7 +169,7 @@ const userController = {
 
 // async update(req, res) {
 
-//     const checkedexit = await User.find({ _id: { $ne: req.body.id } }, { email: req.body.email });
+//     const checkedexit = await User.findOne({ _id: { $ne: req.user.id } }, { email: req.body.email });
 //     //  console.log(checkedexit, req.body.id)
 //     if (checkedexit) {
 //         var user = {
@@ -181,6 +181,7 @@ const userController = {
 //             // password: hashpassword
 
 //         }
+//if (req.file) user.profilePic = 'static/users/' + req.file.filename/
 //         User.findByIdAndUpdate(req.body.id, { $set: user }, { new: true }).then(result => {
 //             res.json({
 //                 success: true,
